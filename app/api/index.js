@@ -29,9 +29,10 @@ internals.plugin = {
     
             return h.response(err).code(response.output.statusCode)
             }
-    
+
             if(request.path != "/docs"){
             response.header("X-XSS-Protection", "1; mode=block");
+            // response.header("Content-Type", "application/x-www-form-urlencoded")
             response.header("X-Frame-Options", "SAMEORIGIN");
             response.header("X-Content-Type-Options", "nosniff");
             response.header("Strict-Transport-Security", "max-age=16070400; includeSubDomains" );

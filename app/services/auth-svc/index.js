@@ -6,7 +6,9 @@ exports.plugin = {
   
     register: (server, options) => {
       const services = [].concat(
-        require('./login')
+        require('./authenticate'),
+        require('./authorize'),
+        require('./token')
       )
       server.method(services)
     }

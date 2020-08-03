@@ -1,11 +1,11 @@
 const Joi = require('joi')
-const handler = require('../handler/login')
+const handler = require('../handler/token')
 //const schemas = require('../schemas/login')
 
 
 const route = {
   method: 'POST',
-  path: '/auth/login',
+  path: '/auth/token',
   options: {
     tags: ['api', 'auth'],
     description: 'Login API',
@@ -14,7 +14,7 @@ const route = {
       payload: {
         username: Joi.string().min(5).max(45).alphanum().required(),
         password: Joi.string().min(5).max(30).required()
-      },
+        },
       options: {
         allowUnknown: true
       }
